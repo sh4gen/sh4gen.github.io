@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALAMALIKUM ISMAIL</title>
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --accent: #404040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects {
+            background-color: var(--bg-secondary);
+        }
+
+        .project-card {
+            background-color: var(--bg-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid var(--accent);
+        }
+
+        .project-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Aşkın Ali Berbergil</h1>
+        <p>Software Engineering Student</p>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of your first project</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of your second project</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="links">
+            <a href="https://github.com/sh4gen">GitHub</a>
+            <a href="https://www.linkedin.com/in/askinaliberbergil/">LinkedIn</a>
+            <a href="mailto:askinaliberbergil@gmail.com">Email</a>
+        </div>
+    </section>
+</body>
+</html>
