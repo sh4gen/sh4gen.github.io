@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aşkın Ali Berbergil</title>
+    <title>Orbit Animation</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -27,10 +27,21 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            position: relative; /* To position gas elements relative to the body */
+            overflow: hidden; /* Hide overflow from the random gas elements */
         }
 
         .content {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* Ensure content stays above gas elements */
+            position: absolute; /* Fix content's position in the viewport */
+            top: 50%; /* Vertically center the content */
+            left: 50%; /* Horizontally center the content */
+            transform: translate(-50%, -50%); /* To perfectly center it */
         }
 
         h1 {
@@ -56,32 +67,116 @@
             transition: color 0.3s ease;
         }
 
+        .content-box {
+        background: rgba(20, 20, 20, 0.7); /* Siyah yarı şeffaf arka plan */
+        padding: 2rem 3rem; /* Kutunun içindeki yazılar için boşluk */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+
         .social-links a:hover {
             color: var(--text-primary);
         }
 
-        .logo {
-            margin-bottom: 2rem;
+        /* Style for dynamically added gas.png elements */
+        .gas {
+            position: absolute;
+            background-image: url('gas.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            animation: fadeInOut 10s infinite;
+            z-index: -1; /* Ensure gas elements are behind everything else */
         }
 
-        .logo img {
-            max-width: 150px;
-            border-radius: 50%;
+        .hole {
+            position: absolute;
+            background-image: url('star.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            animation: fadeInOut 10s infinite;
+            z-index: -1; 
         }
+
+        /* Keyframes for fade-in/fade-out effect */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="content">
-        <div class="logo">
-            <img src="image.png" alt="Shagen Logo">
-        </div>
-        <h1>Aşkın Ali Berbergil</h1>
-        <p>Software Engineering Student</p>
-        <div class="social-links">
-            <a href="https://github.com/sh4gen"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/askinaliberbergil"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:askinaliberbergil@gmail.com"><i class="fas fa-envelope"></i></a>
+        <!-- Yeni eklenen kutu -->
+        <div class="content-box">
+            <h1>Aşkın Ali Berbergil</h1>
+            <p>Software Engineering Student</p>
+            <div class="social-links">
+                <a href="https://github.com/sh4gen"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/askinaliberbergil"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:askinaliberbergil@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
     </div>
+    
+
+    <script>
+        // Function to generate random positions for gas.png
+        function generateGasElements(numberOfElements) {
+            for (let i = 0; i < numberOfElements; i++) {
+                let gasElement = document.createElement('div');
+                gasElement.classList.add('gas');
+
+                // Random size between 100px and 300px
+                let size = Math.random() * 200 + 100;
+                gasElement.style.width = size + 'px';
+                gasElement.style.height = size + 'px';
+
+                // Random position (within the viewport)
+                let top = Math.random() * 100 + '%';
+                let left = Math.random() * 100 + '%';
+                gasElement.style.top = top;
+                gasElement.style.left = left;
+
+                // Append the gas element to the body
+                document.body.appendChild(gasElement);
+            }
+        }
+
+        function generateHoleElements(numberOfElements) {
+            for (let i = 0; i < numberOfElements; i++) {
+                let gasElement = document.createElement('div');
+                gasElement.classList.add('hole');
+
+                // Random size between 100px and 300px
+                let size = Math.random() * 200 + 500;
+                gasElement.style.width = size + 'px';
+                gasElement.style.height = size + 'px';
+
+                // Random position (within the viewport)
+                let top = Math.random() * 100 + '%';
+                let left = Math.random() * 100 + '%';
+                gasElement.style.top = top;
+                gasElement.style.left = left;
+
+                // Append the gas element to the body
+                document.body.appendChild(gasElement);
+            }
+        }
+
+        // Generate 30 random gas elements to cover the background
+        generateGasElements(60);
+        generateHoleElements(5);
+    </script>
 </body>
 </html>
