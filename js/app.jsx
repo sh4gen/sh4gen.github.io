@@ -194,6 +194,34 @@ function App(){
             </div>
           </div>
         </section>
+
+        {/* projects section added for single-page navigation */}
+        <section id="projects" className="flex flex-col gap-8 relative">
+          <div className="flex items-center gap-4 mb-4">
+            <Network className="text-green-500 glow-text" size={32} />
+            <h2 className="font-mono text-3xl font-bold text-white">PROJECTS<span className="text-green-500 animate-pulse">_</span></h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* example project card */}
+            <div className="glass-card p-8 rounded-xl relative overflow-hidden group">
+              <h3 className="text-2xl font-bold text-white mb-2">Example Project</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">A brief description of a project. Replace with real content or links.</p>
+              <a href="#" className="mt-4 inline-block text-green-400 font-mono text-sm">View on GitHub →</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="flex flex-col gap-8 relative">
+          <div className="flex items-center gap-4 mb-4">
+            <Mail className="text-green-500 glow-text" size={32} />
+            <h2 className="font-mono text-3xl font-bold text-white">CONTACT<span className="text-green-500 animate-pulse">_</span></h2>
+          </div>
+
+          <div className="text-zinc-400">
+            <p>If you'd like to get in touch, feel free to send an email to <a href="mailto:askinaliberbergil@gmail.com" className="text-green-400 underline">askinaliberbergil@gmail.com</a> or connect via LinkedIn.</p>
+          </div>
+        </section>
       </main>
     </div>
   );
