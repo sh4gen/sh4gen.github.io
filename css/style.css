@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+:root { --green: #22c55e; --dark: #000000; }
+body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: #fafafa; overflow-x: hidden; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.glow-text { text-shadow: 0 0 20px rgba(34,197,94,0.6); }
+
+@keyframes broken-neon { 0%,75%{opacity:1;color:var(--green);text-shadow:0 0 20px rgba(34,197,94,0.6),0 0 40px rgba(34,197,94,0.4);}76%{opacity:0.3;color:#064e3b;text-shadow:none;}77%{opacity:1;color:var(--green);text-shadow:0 0 20px rgba(34,197,94,0.6);}78%{opacity:0.3;color:#064e3b;text-shadow:none;}83%{opacity:0.3;color:#064e3b;text-shadow:none;}84%{opacity:1;color:var(--green);text-shadow:0 0 20px rgba(34,197,94,0.6);}85%{opacity:0.3;color:#064e3b;text-shadow:none;}86%,100%{opacity:1;color:var(--green);text-shadow:0 0 20px rgba(34,197,94,0.6),0 0 40px rgba(34,197,94,0.4);} }
+.broken-lamp { animation: broken-neon 4s infinite; display:inline-block; }
+
+.glass-card { background: rgba(5,10,5,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border:1px solid rgba(34,197,94,0.15); box-shadow:0 4px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(34,197,94,0.02); transition:all 0.3s ease; }
+.glass-card:hover { border-color: rgba(34,197,94,0.5); box-shadow:0 0 30px rgba(34,197,94,0.15), inset 0 0 20px rgba(34,197,94,0.05); transform: translateY(-2px); }
+
+@keyframes pulse-nvidia { 0%{box-shadow:0 0 0 0 rgba(118,185,0,0.4);}70%{box-shadow:0 0 0 15px rgba(118,185,0,0);}100%{box-shadow:0 0 0 0 rgba(118,185,0,0);} }
+.nvidia-card { background: linear-gradient(135deg, rgba(10,25,10,0.9) 0%, rgba(0,0,0,0.95) 100%); border:1px solid rgba(118,185,0,0.6); animation:pulse-nvidia 2.5s infinite; position:relative; overflow:hidden; }
+.nvidia-card::before { content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, #76B900, transparent); animation: scanline 2s linear infinite; }
+@keyframes scanline { 0%{transform:translateX(-100%);}100%{transform:translateX(100%);} }
+
+.scanlines { background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1)); background-size:100% 4px; position:fixed; inset:0; pointer-events:none; z-index:50; opacity:0.3; }
+
+::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-track { background:#000000; } ::-webkit-scrollbar-thumb { background:#14532d; border-radius:10px; } ::-webkit-scrollbar-thumb:hover { background:#22c55e; }
+
+@keyframes marquee { 0%{transform:translateX(0%);}100%{transform:translateX(-50%);} }
+.animate-marquee { display:inline-flex; white-space:nowrap; animation:marquee 30s linear infinite; }
+.tech-icon { filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); transition: all 0.3s ease; }
+.tech-icon:hover { filter: drop-shadow(0 0 15px rgba(34,197,94,0.6)); transform: scale(1.1); }
+
+/* Basic layout tweaks to ensure content is readable without a build step */
+.min-h-screen { min-height: 100vh; }
+.fixed { position: fixed; }
+.inset-0 { top:0; right:0; bottom:0; left:0; }
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-50 { z-index: 50; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.pt-40 { padding-top: 10rem; }
+.pb-32 { padding-bottom: 8rem; }
+.max-w-5xl { max-width: 64rem; }
+.mx-auto { margin-left:auto; margin-right:auto; }
+.px-3 { padding-left: .75rem; padding-right: .75rem; }
+.p-3 { padding: .75rem; }
+.rounded { border-radius: .5rem; }
+.rounded-xl { border-radius: 1rem; }
+.text-zinc-400{ color: #9ca3af; }
+.text-green-400{ color: #4ade80; }
+.text-green-500{ color: var(--green); }
+.bg-black\/50{ background: rgba(0,0,0,0.5); }
